@@ -1,32 +1,63 @@
-// OpusRPG.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include <string>
 #include <cstdlib>
 #include <clocale>
-
-void tworzeniePostaci() {
-    std::cout << "Jak masz na imiê przyjacielu?\n";
+class Bohater {
+public:
     std::string name;
-    std::cin >> name;
-    int strength, health, agility;
+    int strength;
+    int agility;
+    int health;
+
+    void przedstawsie() {
+        std::cout << "Witaj " << name << "\nsi³a: " << strength << "\nzrêcznoœæ " << agility << "\nzdrowie " << health << '\n';
+    }
+
+    void atak(Bohater &cel) {
+        this->health = health - strength;
+    }
+
+    Bohater() {
+        health = 100;
+        strength = 10;
+        agility = 10;
+        name = "Bezimienny";
+    }
+
+    Bohater(std::string name, int health, int strength, int agility) {
+        this->health = health;
+        this->strength = strength;
+        this->agility = agility;
+        this->name = name;
+    }
+    ~Bohater() {
+        std::cout << "umieram " << name <<'\n';
+    }
+};
+
+Bohater tworzeniePostaci() {
+    Bohater gracz;
+    Bohater smok("Smok Wawelski", 2000, 50, 0);
+    smok.przedstawsie();
+    std::cout << "Jak masz na imiê przyjacielu?\n";
+    std::cin >> gracz.name;
     do {
         std::cout << "Podaj wartoœæ zdrowia,\n";
         std::cout << "Suma si³y i zrêcznoœcinie mo¿e przekraczaæ 20\n";
-        std::cin >> health;
+        std::cin >> gracz.health;
         std::cout << "Podaj wartoœæ si³y,\n";
-        std::cin >> strength;
+        std::cin >> gracz.strength;
         std::cout << "Podaj wartoœæ zrêcznoœci,\n";
-        std::cin >> agility;
+        std::cin >> gracz.agility;
 
-    } while (strength + agility > 20 || strength < 0 || agility < 0);
+    } while (gracz.strength + gracz.agility > 20 || gracz.strength < 0 || gracz.agility < 0);
     std::cout << "Statystyki zaakceptowane!\n";
 
-    if (name == "Geralt") {
+    if (gracz.name == "Geralt") {
         std::cout << "Witaj, WiedŸminie!\n";
     }
-    std::cout << "Witaj " << name << "\nsi³a: " << strength << "\nzrêcznoœæ " << agility << "\nzdrowie " << health << '\n';
+    gracz.przedstawsie();
+    return gracz;
 }
 
 
@@ -34,6 +65,8 @@ int main()
 {
     setlocale(LC_CTYPE, "Polish");
     int choose;
+    Bohater smok("Smok Wawelski", 2000, 50, 0);
+    Bohater glownyBohater;
     do {
         std::cout << "Witaj w œwiecie Opus RPG\n\n";
         std::cout << "\t1. Nowa Gra\n";
@@ -41,7 +74,7 @@ int main()
         std::cin >> choose;
         switch (choose) {
         case 1:
-            tworzeniePostaci();
+            glownyBohater = tworzeniePostaci();
         break;
         case 2:
             std::cout << "Zegnaj\n";
@@ -51,16 +84,6 @@ int main()
             break;
         }
     } while (choose != 2);
+    glownyBohater.przedstawsie();
     
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
