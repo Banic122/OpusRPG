@@ -3,24 +3,53 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <clocale>
+
 int main()
 {
-    std::cout << "Witaj w œwiecie Opus RPG\n";
-    std::cout << "Jak masz na imiê przyjacielu?\n";
-    std::string name;
-    std::cin >> name;
-    
-    int strength, health, agility;
+    setlocale(LC_CTYPE, "Polish");
+    int choose;
     do {
-        std::cout << "Podaj wartoœci zdrowia, si³y oraz zrêcznoœci \n Suma si³y i zrêcznoœcinie mo¿e przekraczaæ 20\n";
-        std::cin >> health >> strength >> agility;
-    } while (strength + agility > 20 || strength < 0 || agility < 0);
-    std::cout << "Statystyki zaakceptowane!\n";
+        std::cout << "Witaj w œwiecie Opus RPG\n\n";
+        std::cout << "\t1. Nowa Gra\n";
+        std::cout << "\t2. Wyjœcie\n";
+        std::cin >> choose;
+        switch (choose) {
+        case 1:
+        {
+            std::cout << "Jak masz na imiê przyjacielu?\n";
+            std::string name;
+            std::cin >> name;
+            int strength, health, agility;
+            do {
+                std::cout << "Podaj wartoœæ zdrowia,\n";
+                std::cout << "Suma si³y i zrêcznoœcinie mo¿e przekraczaæ 20\n";
+                std::cin >> health;
+                std::cout << "Podaj wartoœæ si³y,\n";
+                std::cin >> strength;
+                std::cout << "Podaj wartoœæ zrêcznoœci,\n";
+                std::cin >> agility;
+                
+            } while (strength + agility > 20 || strength < 0 || agility < 0);
+            std::cout << "Statystyki zaakceptowane!\n";
 
-    if (name == "Geralt") {
-        std::cout << "Witaj, WiedŸminie!\n";
-    }
-    std::cout << "Witaj " << name << "\nsi³a: " << strength << "\nzrêcznoœæ " << agility << "\nzdrowie " << health << '\n';
+            if (name == "Geralt") {
+                std::cout << "Witaj, WiedŸminie!\n";
+            }
+            std::cout << "Witaj " << name << "\nsi³a: " << strength << "\nzrêcznoœæ " << agility << "\nzdrowie " << health << '\n';
+        }
+
+        break;
+        case 2:
+            std::cout << "Zegnaj\n";
+            break;
+        default:
+            std::cout << "Wybierz 1 albo 2";
+            break;
+        }
+    } while (choose != 2);
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
