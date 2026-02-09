@@ -6,6 +6,30 @@
 #include <cstdlib>
 #include <clocale>
 
+void tworzeniePostaci() {
+    std::cout << "Jak masz na imiê przyjacielu?\n";
+    std::string name;
+    std::cin >> name;
+    int strength, health, agility;
+    do {
+        std::cout << "Podaj wartoœæ zdrowia,\n";
+        std::cout << "Suma si³y i zrêcznoœcinie mo¿e przekraczaæ 20\n";
+        std::cin >> health;
+        std::cout << "Podaj wartoœæ si³y,\n";
+        std::cin >> strength;
+        std::cout << "Podaj wartoœæ zrêcznoœci,\n";
+        std::cin >> agility;
+
+    } while (strength + agility > 20 || strength < 0 || agility < 0);
+    std::cout << "Statystyki zaakceptowane!\n";
+
+    if (name == "Geralt") {
+        std::cout << "Witaj, WiedŸminie!\n";
+    }
+    std::cout << "Witaj " << name << "\nsi³a: " << strength << "\nzrêcznoœæ " << agility << "\nzdrowie " << health << '\n';
+}
+
+
 int main()
 {
     setlocale(LC_CTYPE, "Polish");
@@ -17,29 +41,7 @@ int main()
         std::cin >> choose;
         switch (choose) {
         case 1:
-        {
-            std::cout << "Jak masz na imiê przyjacielu?\n";
-            std::string name;
-            std::cin >> name;
-            int strength, health, agility;
-            do {
-                std::cout << "Podaj wartoœæ zdrowia,\n";
-                std::cout << "Suma si³y i zrêcznoœcinie mo¿e przekraczaæ 20\n";
-                std::cin >> health;
-                std::cout << "Podaj wartoœæ si³y,\n";
-                std::cin >> strength;
-                std::cout << "Podaj wartoœæ zrêcznoœci,\n";
-                std::cin >> agility;
-                
-            } while (strength + agility > 20 || strength < 0 || agility < 0);
-            std::cout << "Statystyki zaakceptowane!\n";
-
-            if (name == "Geralt") {
-                std::cout << "Witaj, WiedŸminie!\n";
-            }
-            std::cout << "Witaj " << name << "\nsi³a: " << strength << "\nzrêcznoœæ " << agility << "\nzdrowie " << health << '\n';
-        }
-
+            tworzeniePostaci();
         break;
         case 2:
             std::cout << "Zegnaj\n";
