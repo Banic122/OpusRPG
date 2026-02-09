@@ -2,10 +2,18 @@
 //
 
 #include <iostream>
-
+#include <string>
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::cout << "Witaj w œwiecie Opus RPG\n";
+    std::cout << "Jak masz na imiê przyjacielu?\n";
+    std::string name;
+    std::cin >> name;
+    std::cout << "Podaj wartoœci zdrowia, si³y oraz zrêcznoœci\n";
+    int strength, health, agility;
+    std::cin >> health >> strength >> agility;
+    std::cout << "Witaj " << name << "\nsi³a: " << strength << "\nzrêcznoœæ " << agility << "\nzdrowie " << health << '\n';
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="OpusRPG/OpusRPG.vcxproj" />
+  <Project Path="OpusRPG/OpusRPG.vcxproj" Id="c754c912-a71f-4a07-99b5-90d8dca0e1f3" />
 </Solution>
