@@ -9,11 +9,22 @@ int main()
     std::cout << "Jak masz na imiê przyjacielu?\n";
     std::string name;
     std::cin >> name;
-    std::cout << "Podaj wartoœci zdrowia, si³y oraz zrêcznoœci\n";
+    std::cout << "Podaj wartoœci zdrowia, si³y oraz zrêcznoœci\n Suma si³y i zrêcznoœcinie mo¿e przekraczaæ 20\n";
     int strength, health, agility;
     std::cin >> health >> strength >> agility;
-    std::cout << "Witaj " << name << "\nsi³a: " << strength << "\nzrêcznoœæ " << agility << "\nzdrowie " << health << '\n';
+    
+    if (strength + agility > 20 || strength < 0 || agility < 0) {
+        std::cout << "Wykryto próbê oszustwa! Twoje statystyki zostaj¹ zredukowane do minimum (5/5)\n";
+        strength = 5;
+        agility = 5;
+    }
+    else
+        std::cout << "Statystyki zaakceptowane!\n";
 
+    if (name == "Geralt") {
+        std::cout << "Witaj, WiedŸminie!";
+    }
+    std::cout << "Witaj " << name << "\nsi³a: " << strength << "\nzrêcznoœæ " << agility << "\nzdrowie " << health << '\n';
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
