@@ -1,2 +1,6 @@
-﻿  main.cpp
+﻿  Bohater.cpp
+  Mechanika.cpp
+  main.cpp
+C:\Nauka\OpusRPG\OpusRPG\main.cpp(12,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
   OpusRPG.vcxproj -> C:\Nauka\OpusRPG\x64\Debug\OpusRPG.exe

@@ -127,7 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bohater.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mechanika.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bohater.h" />
+    <ClInclude Include="Mechanika.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
